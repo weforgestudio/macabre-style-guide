@@ -57,6 +57,8 @@ Based on the [Gamemakin](https://github.com/Allar/ue5-style-guide) style guide.
   - [2.7 Very Large Asset Sets Get Their Own Folder Layout](#structure-large-sets)
   - [2.8 `MaterialLibrary`](#structure-material-library)
   - [2.9 No Empty Folders](#structure-no-empty-folders)
+  - [2.10 Game Feature Plugins](#structure-gamefeatureplugins)
+  - [2.11 Third Party Assets](#structure-thirdpartyassets)
 - [3. Blueprints](#bp)
   - [3.1 Compiling](#bp-compiling)
   - [3.2 Variables](#bp-vars)
@@ -421,8 +423,9 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Gameplay Ability        | GA_        |            |                                  |
-| Gameplay Effect         | GE         |            |                                  |
+| Gameplay Effect         | GE_         |            |                                  |
 | Gameplay Cue (Notify)   | GCN_       |            |                                  |
+| Gameplay Cue (Notify Looping)   | GCNL_       |            |                                  |
 
 <a name="anc-misc"></a>
 <a name="1.2.8"></a>
@@ -489,16 +492,20 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Font                    | Font_      |            |                                  |
 | Slate Brush             | Brush_     |            |                                  |
 | Slate Widget Style      | Style_     |            |                                  |
-| Widget Blueprint        | WBP_       |            |                                  |
+| Widget Blueprint        | W_         |            |                                  |
 
 <a name="anc-effects"></a>
 <a name="1.2.12"></a>
-### 1.2.12 Effects
+### 1.2.12 Niagara
 
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Particle System         | PS_        |            |                                  |
-| Material (Post Process) | PP_        |            |                                  |
+| Asset Type                   | Prefix     | Suffix     | Notes                            |
+| ---------------------------- | ---------- | ---------- | -------------------------------- |
+| Niagara System               | NS_        |            |                                  |
+| Niagara Emitter              | NE_        |            |                                  |
+| Niagara Module               | NM_        |            |                                  |
+| Niagara Function Script      | NM_        | _S         |                                  |
+| Niagara Parameter Collection | NP_        |            |                                  |
+| Niagara Parameter Collection Instance | NPI_ |         |                                  |
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -516,54 +523,67 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
 ### 2e1 Example Project Content Structure
 <pre>
 |-- Content
-    |-- <a href="#2.2">GenericShooter</a>
-        |-- Art
-        |   |-- Industrial
-        |   |   |-- Ambient
-        |   |   |-- Machinery
-        |   |   |-- Pipes
-        |   |-- Nature
-        |   |   |-- Ambient
-        |   |   |-- Foliage
-        |   |   |-- Rocks
-        |   |   |-- Trees
-        |   |-- Office
-        |-- Characters
-        |   |-- Bob
-        |   |-- Common
-        |   |   |-- <a href="#2.7">Animations</a>
-        |   |   |-- Audio
-        |   |-- Jack
-        |   |-- Steve
-        |   |-- <a href="#2.1.3">Zoe</a>
-        |-- <a href="#2.5">Core</a>
-        |   |-- Characters
-        |   |-- Engine
-        |   |-- <a href="#2.1.2">GameModes</a>
-        |   |-- Interactables
-        |   |-- Pickups
-        |   |-- Weapons
-        |-- Effects
-        |   |-- Electrical
-        |   |-- Fire
-        |   |-- Weather
-        |-- <a href="#2.4">Maps</a>
-        |   |-- Campaign1
-        |   |-- Campaign2
-        |-- <a href="#2.8">MaterialLibrary</a>
-        |   |-- Debug
-        |   |-- Metal
-        |   |-- Paint
-        |   |-- Utility
-        |   |-- Weathering
-        |-- Placeables
-        |   |-- Pickups
-        |-- Weapons
-            |-- Common
-            |-- Pistols
-            |   |-- DesertEagle
-            |   |-- RocketPistol
-            |-- Rifles
+    |-- <a href="#2.2">MacabreGame</a>
+    |   |-- Characters
+    |   |   |-- Arna
+    |   |   |-- Banjo
+    |   |   |-- Common
+    |   |   |   |-- <a href="#2.7">Animations</a>
+    |   |   |   |-- Audio
+    |   |   |-- Josh
+    |   |   |-- Shaddi
+    |   |   |-- Yun
+    |   |-- <a href="#2.5">Core</a>
+    |   |   |-- Abilities
+    |   |   |-- ActionSets
+    |   |   |-- Experiences
+    |   |   |-- Input
+    |   |   |-- Camera
+    |   |-- <a href="#2.4">Maps</a>
+    |   |   |-- Entry
+    |   |   |-- Lobby
+    |   |-- <a href="#2.8">MaterialLibrary</a>
+    |   |   |-- Debug
+    |   |   |-- Metal
+    |   |   |-- Paint
+    |   |   |-- Utility
+    |   |   |-- Weathering
+    |-- <a href="#2.11">Megascans</a>
+    |-- <a href="#2.11">MetaHumans</a>
+    |-- <a href="#2.11">MSPresets</a>
+    |-- <a href="#2.12">ThirdPartyAssets</a>
+        |-- StarterContent
+
+|-- <a href="#2.10">ChapterOne Content</a>
+    |-- <a href="#2.2">ChapterOne</a>
+    |   |-- Art
+    |   |   |-- Industrial
+    |   |   |   |-- Ambient
+    |   |   |   |-- Machinery
+    |   |   |   |-- Pipes
+    |   |   |-- Nature
+    |   |   |   |-- Ambient
+    |   |   |   |-- Foliage
+    |   |   |   |-- Rocks
+    |   |   |   |-- Trees
+    |   |   |-- Office
+    |   |-- Experiences
+    |   |   |-- BP_ChapterOneExperience
+    |   |-- Effects
+    |   |   |-- Electrical
+    |   |   |-- Fire
+    |   |   |-- Weather
+    |   |-- Input
+    |   |-- Artifacts
+    |   |   |-- Pickups
+    |   |   |-- Fragments
+    |   |-- <a href="#2.4">Maps</a>
+    |   |   |-- EcoLodgeMaster
+    |-- <a href="#2.11">Megascans</a>
+    |-- <a href="#2.11">MSPresets</a>
+    |-- <a href="#2.12">ThirdPartyAssets</a>
+
+
 </pre>
 
 The reasons for this structure are listed in the following sub-sections.
@@ -743,6 +763,14 @@ If you find that the content browser has an empty folder you can't delete, you s
 1. Open the editor. Confirm everything still works as expected. If it doesn't, revert, figure out what went wrong, and try again.
 1. Ensure the folder is now gone.
 1. Submit changes to source control.
+
+<a name="2.10"></a>
+<a name="structure-gamefeatureplugins"></a>
+### 2.10 Modularising Content with Game Feature Plugins
+
+<a name="2.11"></a>
+<a name="structure-thirdpartyassets"></a>
+### 2.11 Separating assets sources from the marketplace into a top-level ThirdPartAssets folder
 
 **[⬆ Back to Top](#table-of-contents)**
 
