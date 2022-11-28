@@ -767,10 +767,14 @@ If you find that the content browser has an empty folder you can't delete, you s
 <a name="2.10"></a>
 <a name="structure-gamefeatureplugins"></a>
 ### 2.10 Modularising Content with Game Feature Plugins
+Game Feature Plugins are a way to contain assets to a particular scope that can be dynamically loaded.
+The assets in the project Content folder can be used in the game feature plugin, but not the other way around.
+Hence, assets that can be used by multiple game features should be in Content (such as core mechanics and characters), but chapter-specific assets should reside in the plugin, such as maps and environmental art.
 
 <a name="2.11"></a>
 <a name="structure-thirdpartyassets"></a>
-### 2.11 Separating assets sources from the marketplace into a top-level ThirdPartAssets folder
+### 2.11 Separating assets sourced from the marketplace into a top-level ThirdPartyAssets folder
+Keeping assets from the marketplace or elsewhere in a ThirdPartyAssets folder means updating these assets is easy without polluting the global namespace. It also ensures that it's made clear to artists the source of the assets, and whether they need to be optimised or edited if used.
 
 **[⬆ Back to Top](#table-of-contents)**
 
