@@ -503,8 +503,8 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | ---------------------------- | ---------- | ---------- | -------------------------------- |
 | Niagara System               | NS_        |            |                                  |
 | Niagara Emitter              | NE_        |            |                                  |
-| Niagara Module               | NM_        |            |                                  |
-| Niagara Function Script      | NM_        | _S         |                                  |
+| Niagara Module               | NSC_       | _M         |                                  |
+| Niagara Function Script      | NSC_       | _F         |                                  |
 | Niagara Parameter Collection | NP_        |            |                                  |
 | Niagara Parameter Collection Instance | NPI_ |         |                                  |
 
