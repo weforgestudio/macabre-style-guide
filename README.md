@@ -417,15 +417,15 @@ It is common practice to pack multiple layers of texture data into one texture. 
 Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
 
 <a name="anc-gameplay-abilities"></a>
-<a name="1.2.8"></a>
+<a name="1.2.7"></a>
 ### 1.2.7 Gameplay Abilities
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Gameplay Ability        | GA_        |            |                                  |
-| Gameplay Effect         | GE_         |            |                                  |
+| Gameplay Effect         | GE_        |            |                                  |
 | Gameplay Cue (Notify)   | GCN_       |            |                                  |
-| Gameplay Cue (Notify Looping)   | GCNL_       |            |                                  |
+| Gameplay Cue (Actor)    | GCA_       |            |                                  |
 
 <a name="anc-misc"></a>
 <a name="1.2.8"></a>
